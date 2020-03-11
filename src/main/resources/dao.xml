@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans  default-init-method="init" default-destroy-method="destroy"
-        xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:annotation-config/>
 
     <!--        <bean id="dao" name="dao1 dao2 dao3" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
     <!--    <bean id="new_dao" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
@@ -23,13 +26,18 @@
         <constructor-arg ref="connection"/>
     </bean>
 
-<!--    lazy-init &ndash;&gt; 빈을 생성하는 시기를 사용하는 시점으로 바꾸는 옵션-->
-    <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" lazy-init="true">
+    <!--    lazy-init &ndash;&gt; 빈을 생성하는 시기를 사용하는 시점으로 바꾸는 옵션-->
+    <bean id="dao2" class="kr.co.fastcampus.cli.Dao2">
         <constructor-arg ref="connection"/>
     </bean>
 
-    <bean class="kr.co.fastcampus.cli.A">
-    </bean>
-
+<!--    <bean class="kr.co.fastcampus.cli.ExamB">-->
+<!--        <qualifier value="b1"/>-->
+<!--    </bean>-->
+<!--    <bean class="kr.co.fastcampus.cli.ExamB">-->
+<!--        <qualifier value="b2"/>-->
+<!--    </bean>-->
+    <bean class="kr.co.fastcampus.cli.AppConfig"/>
+    <bean id="a" class="kr.co.fastcampus.cli.ExamA"/>
 
 </beans>
