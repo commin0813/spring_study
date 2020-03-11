@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans  default-init-method="init" default-destroy-method="destroy"
+        xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
@@ -25,6 +26,9 @@
 <!--    lazy-init &ndash;&gt; 빈을 생성하는 시기를 사용하는 시점으로 바꾸는 옵션-->
     <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" lazy-init="true">
         <constructor-arg ref="connection"/>
+    </bean>
+
+    <bean class="kr.co.fastcampus.cli.A">
     </bean>
 
 

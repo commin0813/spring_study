@@ -16,6 +16,12 @@ public class Dao {
 	public Dao(Connection connection) {
 		this.connection = connection;
 	}
+	public void init(){
+		log.info("Dao init");
+	}
+	public void destroy(){
+		log.info("Dao destroy");
+	}
 
 	public void run() throws Exception {
 		var statement = connection.createStatement();

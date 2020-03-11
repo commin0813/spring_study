@@ -5,9 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.Lifecycle;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.*;
+
 @Slf4j
 class Main {
 	private static Logger logger = LoggerFactory.getLogger(Main.class);
@@ -16,15 +19,21 @@ class Main {
 		logger.debug("Hello World");
 
 //        ApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
-		ApplicationContext context = new ClassPathXmlApplicationContext("dao.xml","bean.xml");
-        Dao dao = context.getBean("dao",Dao.class);
-        dao.run();
+		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml", "bean.xml");
+		Lifecycle lifecycle = context.getBean(Lifecycle.class);
+		log.info("lifecycle is running ? --> "+ lifecycle.isRunning());
+		context.close();
+		log.info("lifecycle is running ? --> "+ lifecycle.isRunning());
 
-//        Dao2 dao2 = context.getBean("dao2",Dao2.class);
-//        dao2.run();
+//		ConnectionFactory connectionFactory = context.getBean("connectionFactory", ConnectionFactory.class);
+//		log.info("connection created result : " + (connectionFactory.getConnection() != null));
+//		for (int i = 0; i < 10; i++) {
+//			System.out.println("cnt:" + i);
+//			Thread.sleep(100);
+//		}
+//
+//		context.close();
 
-		A a1 = context.getBean("A",A.class);
-		A a2 = context.getBean("A",A.class);
-		log.info("result : " + (a1 == a2));
+
 	}
 }

@@ -1,6 +1,9 @@
 package kr.co.fastcampus.cli;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +15,18 @@ public class ConnectionFactory {
     private String url;
     private String user;
     private String password;
+    @Getter private Connection connection = null;
+
+    public void init() throws Exception {
+        log.info("init method !!");
+        this.connection = createConnection();
+    }
+
+    public void destroy() throws Exception {
+        log.info("Destroy !!");
+        if(this.connection != null)
+            this.connection.close();
+    }
 
     public ConnectionFactory(String driverClass, String url, String user, String password) {
         this.driverClass = driverClass;
