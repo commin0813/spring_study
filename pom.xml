@@ -101,6 +101,15 @@
             <scope>test</scope>
         </dependency>
 
+
+<!--        스프링 컨텍스트 스캔을 빠르게하기위해 인덱싱하는 의존성 추가-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-indexer</artifactId>
+            <version>5.2.3.RELEASE</version>
+            <scope>true</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
