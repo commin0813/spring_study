@@ -8,8 +8,9 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.inject.Named;
 
-@Component
+@Named("b")
 @Slf4j
 public class B {
 	@PostConstruct
