@@ -7,6 +7,7 @@
     <!--        <bean id="dao" name="dao1 dao2 dao3" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
     <!--    <bean id="new_dao" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
     <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory">
+        <constructor-arg name="driverClass" value="org.h2.Driver"/>
         <constructor-arg name="url" value="jdbc:h2:mem:test;MODE=MySql"/>
         <constructor-arg name="user" value="sa"/>
         <constructor-arg name="password" value=""/>
@@ -21,6 +22,7 @@
         <constructor-arg ref="connection"/>
     </bean>
 
+<!--    lazy-init &ndash;&gt; 빈을 생성하는 시기를 사용하는 시점으로 바꾸는 옵션-->
     <bean id="dao2" class="kr.co.fastcampus.cli.Dao2" lazy-init="true">
         <constructor-arg ref="connection"/>
     </bean>
