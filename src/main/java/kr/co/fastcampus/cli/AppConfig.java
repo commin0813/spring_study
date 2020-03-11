@@ -1,12 +1,20 @@
 package kr.co.fastcampus.cli;
 
-import org.springframework.context.annotation.*;
 
-import javax.annotation.Resource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@PropertySource("classpath:application.properties")
-//@ComponentScan(basePackages = "kr.co.fastcampus.cli")
+@ComponentScan(basePackageClasses = AppConfig.class)
 public class AppConfig {
+	@Bean(initMethod = "init")
+	public B b() {
+		return new B();
+	}
 
+	@Bean(initMethod = "init", destroyMethod = "destroy")
+	public A a(B b) {
+		return new A(b);
+	}
 }
