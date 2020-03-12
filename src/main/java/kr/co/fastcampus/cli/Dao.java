@@ -23,17 +23,20 @@ public class Dao {
 		log.info("Dao destroy");
 	}
 
-	public void run() throws Exception {
+	public void create() throws  SQLException{
+		var statement = connection.createStatement();
+		statement.execute("create table member(id int auto_increment, username varchar(255) not null, password varchar(255) not null,primary key(id))");
+	}
+
+	public void insert() throws SQLException {
+		var statement = connection.createStatement();
+		statement.executeUpdate("insert into member(username,password) values('admin','1234')");
+		throw new RuntimeException("example SQLException");
+	}
+
+	public void print() throws Exception {
 		var statement = connection.createStatement();
 		connection.setAutoCommit(false);
-
-		statement.execute("create table member(id int auto_increment, username varchar(255) not null, password varchar(255) not null,primary key(id))");
-		try {
-			statement.executeUpdate("insert into member(username,password) values('admin','1234')");
-			connection.commit();
-		} catch (Exception e) {
-			connection.rollback();
-		}
 
 		var resultSet = statement.executeQuery("select id,username,password from member");
 		while (resultSet.next()) {
