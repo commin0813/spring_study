@@ -10,12 +10,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @Slf4j
 class Main {
 	public static void main(String[] ar) throws Exception {
-		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("dao.xml");
-//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-//		context.scan("kr.co.fastcampus.cli");
-//		context.refresh();
-//		val b = context.getBean(B.class);
-//		log.info(""+b);
+//		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("__dao.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+		context.register(AppConfig.class);
+		context.refresh();
+		//context.getEnvironment().setActiveProfiles("dev");
 		val dao = context.getBean(Dao.class);
 		dao.run();
 		context.close();
