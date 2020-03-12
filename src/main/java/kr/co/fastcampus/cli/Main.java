@@ -15,8 +15,8 @@ class Main {
 		context.register(AppConfig.class);
 		context.refresh();
 		//context.getEnvironment().setActiveProfiles("dev");
-		val dao = context.getBean(Dao.class);
-		dao.run();
+		val mysvc = context.getBean(MyService.class);
+		mysvc.check();
 		context.close();
 
 	}
