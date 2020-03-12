@@ -7,15 +7,19 @@
 
 
     <context:annotation-config/>
+
     <context:component-scan base-package="kr.co.fastcampus.cli"/>
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
 
     <!--        <bean id="dao" name="dao1 dao2 dao3" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
     <!--    <bean id="new_dao" class="kr.co.fastcampus.cli.Dao" factory-method="createDao"/>-->
     <bean id="connectionFactory" class="kr.co.fastcampus.cli.ConnectionFactory">
-        <constructor-arg name="driverClass" value="org.h2.Driver"/>
-        <constructor-arg name="url" value="jdbc:h2:mem:test;MODE=MySql"/>
-        <constructor-arg name="user" value="sa"/>
-        <constructor-arg name="password" value=""/>
+        <constructor-arg name="driverClass" value="${jdbc.driver-class}"/>
+        <constructor-arg name="url" value="${jdbc.url}"/>
+        <constructor-arg name="user" value="${jdbc.user}"/>
+        <constructor-arg name="password" value="${jdbc.passsword}"/>
     </bean>
 
 
