@@ -1,5 +1,0 @@
-kr.co.fastcampus.web.SimpleFilter=javax.servlet.annotation.WebFilter
-kr.co.fastcampus.web.SimpleServlet=javax.servlet.annotation.WebServlet
-kr.co.fastcampus.web.config.spring.AppConfig=org.springframework.stereotype.Component
-kr.co.fastcampus.web.config.spring.MvcConfig=org.springframework.stereotype.Component
-kr.co.fastcampus.web.controller.MemberController=org.springframework.stereotype.Component

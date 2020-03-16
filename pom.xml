@@ -10,6 +10,7 @@
     <properties>
         <maven.compiler.source>12</maven.compiler.source>
         <maven.compiler.target>12</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <tomcat.version>8.5.23</tomcat.version>
     </properties>
 
