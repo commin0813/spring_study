@@ -1,11 +1,11 @@
-package kr.co.fastcampus.cli.config;
+package kr.co.fastcampus.web.config.spring;
 
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import kr.co.fastcampus.cli.controller.MemberController;
-import kr.co.fastcampus.cli.dao.MemberDao;
-import kr.co.fastcampus.cli.service.MemberService;
+import kr.co.fastcampus.web.controller.MemberController;
+import kr.co.fastcampus.web.dao.MemberDao;
+import kr.co.fastcampus.web.service.MemberService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -58,10 +58,10 @@ public class AppConfig {
 		return new MemberService(memberDao);
 	}
 
-	@Bean
-	public MemberController memberController(MemberService memberService){
-		return new MemberController(memberService);
-	}
+//	@Bean
+//	public MemberController memberController(MemberService memberService){
+//		return new MemberController(memberService);
+//	}
 
 
 //	@Bean
