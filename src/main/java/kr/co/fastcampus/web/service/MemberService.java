@@ -1,13 +1,13 @@
 package kr.co.fastcampus.web.service;
 
 
-import kr.co.fastcampus.web.dao.*;
+import kr.co.fastcampus.web.dao.MemberDao;
+import kr.co.fastcampus.web.entity.Member2;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import kr.co.fastcampus.web.entity.*;
 
 @Slf4j
 @AllArgsConstructor
@@ -20,11 +20,11 @@ public class MemberService {
 	}
 
 	@Transactional
-	public void insert(String userName,String password) {
-		memberDao.insert(userName,password);
+	public void insert(String userName, String password) {
+		memberDao.insert(userName, password);
 	}
 
-	public List<Member> list() {
+	public List<Member2> list() {
 		return memberDao.list();
 	}
 }

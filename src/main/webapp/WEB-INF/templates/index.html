@@ -1,19 +1,82 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Thymeleaf + Spring</h1>-->
+<!--<ul th:each="member, iState : ${members}">-->
+<!--    <li th:text="${member.username}"></li>-->
+<!--    <li th:text="${member.password}"></li>-->
+<!--</ul>-->
+
+<!--<h1 th:each="member, iState : ${members}">-->
+<!--    <h2 th:text="${member.username}"></h2>-->
+<!--</h1>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
 </head>
 <body>
-<h1>Thymeleaf + Spring</h1>
-<ul th:each="member, iState : ${members}">
-    <li th:text="${member.username}"></li>
-    <li th:text="${member.password}"></li>
-</ul>
+<div class="container">
+<div class="row justify-content-md-center">
+    <div class="col-8">
+        <form action="create">
+            <div class="from-group">
+                <label for="">username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username input"/>
+            </div>
+            <div class="from-group">
+                <label for="">password</label>
+                <input type="text" name="password" class="form-control" placeholder="Password input"/>
+            </div>
+            <button type="submit" class="btn btn-primary">submit</button>
+            <btn-primary></btn-primary>
+        </form>
+    </div>
+    <br>
+    <div class="col-8">
+        <table class="table table-striped">
+            <thead>
+            <th>#</th>
+            <th>Username</th>
+            <th>Password</th>
+            </thead>
+            <tbody>
 
-<h1 th:each="member, iState : ${members}">
-    <h2 th:text="${member.username}"></h2>
-</h1>
-
+            <tr th:each="member, iState : ${members}">
+                <td th:text="${iState.index + 1}"></td>
+                <td th:text="${member.username}"></td>
+                <td th:text="${member.password}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,12 +11,12 @@ import java.sql.SQLException;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Member {
+public class Member2 {
 	private int id;
 	@NonNull private String username;
 	@NonNull private String password;
 
-	public Member(ResultSet rs) throws SQLException {
+	public Member2(ResultSet rs) throws SQLException {
 		id = rs.getInt("id");
 		username = rs.getString("username");
 		password = rs.getString("password");

@@ -179,6 +179,22 @@
             <version>3.0.11.RELEASE</version>
         </dependency>
 
+
+
+        <!-- 웹에서 접근 권한 보안을위해 -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.3.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.3.0.RELEASE</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

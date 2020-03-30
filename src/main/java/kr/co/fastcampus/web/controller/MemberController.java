@@ -1,11 +1,12 @@
 package kr.co.fastcampus.web.controller;
 
 
+import kr.co.fastcampus.web.entity.Member2;
+import kr.co.fastcampus.web.model.MemberDao;
 import kr.co.fastcampus.web.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import kr.co.fastcampus.web.entity.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -17,18 +18,20 @@ public class MemberController {
 	MemberService memberService;
 
 	@RequestMapping("/index")
-	public ModelAndView index(){
+	public ModelAndView index() {
 
 		ModelAndView modelAndView = new ModelAndView("index");
-		List<Member> list = memberService.list();
-		modelAndView.addObject("members",list);
+		List<Member2> list = memberService.list();
+		modelAndView.addObject("members", list);
 
 		return modelAndView;
 	}
 
 	@RequestMapping("/create")
-	public void create(){
-		memberService.insert("userName","password");
+	public String create(MemberDao memberDao) {
+//		ModelAndView modelAndView = new ModelAndView("index");
+		memberService.insert(memberDao.getUsername(), memberDao.getPassword());
+		return "redirect:index";
 	}
 
 
